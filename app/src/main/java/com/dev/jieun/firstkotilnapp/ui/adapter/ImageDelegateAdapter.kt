@@ -15,22 +15,22 @@ import kotlinx.android.synthetic.main.item_photo_view.view.*
 class ImageDelegateAdapter(val context: Context) : ViewDelegateAdapter {
 
     override fun onCreateViewHolder(parent: ViewGroup, context: Context): RecyclerView.ViewHolder {
-        println("image delegate create")
+        // println("image delegate create")
         return ViewHolder(parent, this.context)
     }
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: ViewType) {
         holder as ViewHolder
-        println("call onBind (glide)")
+        // println("call onBind (glide)")
         holder.onBind(item as Photo)
     }
 
     inner class ViewHolder(parent: ViewGroup, context: Context) : RecyclerView.ViewHolder(LayoutInflater.from(context).inflate(R.layout
             .item_photo_view, parent, false)) {
         fun onBind(photo: Photo){
-            println("call glide1 url : " +photo.getImageUrl())
+            // println("call glide1 url : " +photo.getImageUrl())
             itemView.run {
                 Glide.with(context).load(photo.getImageUrl()).into(img_photo)
-                println("call glide2 url : " +photo.getImageUrl())
+                // println("call glide2 url : " +photo.getImageUrl())
             }
         }
     }
