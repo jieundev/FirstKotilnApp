@@ -21,6 +21,8 @@ abstract class BaseActivity : RxAppCompatActivity() {
         toolbar?.let {
             toolbar.title = title
             setSupportActionBar(it)
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.setDisplayShowHomeEnabled(true)
             it.setNavigationOnClickListener {
                 onBackPressed()
             }
