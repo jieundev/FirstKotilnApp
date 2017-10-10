@@ -17,12 +17,13 @@ import com.dev.jieun.firstkotilnapp.ui.base.BaseFragment
 import com.dev.jieun.firstkotilnapp.ui.listener.InfiniteScrollListener
 import com.dev.jieun.firstkotilnapp.ui.viewmodel.ImageViewModel
 import com.dev.jieun.firstkotilnapp.util.AdapterConstants
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_image.*
 
 class MainFragment : BaseFragment() {
     private var page = 0
     override fun getLayoutResource(): Int = R.layout.fragment_image
-    private lateinit var activity : MainActivity
+    private lateinit var activity : MainActivity // 늦은 초기화, 사용하는 시점에서 초기화
 
     // Java 식의 static instance
     companion object {
@@ -42,7 +43,12 @@ class MainFragment : BaseFragment() {
         println("MainFrag :: "+activity.applicationContext.toString())
         LoadMoreAdapter(activity.applicationContext).apply {
             delegateAdapters.put(AdapterConstants.LOADING, LoadDelegateAdapter(activity.applicationContext))
-            delegateAdapters.put(AdapterConstants.ITEM, ImageDelegateAdapter(activity.applicationContext))
+            delegateAdapters.put(AdapterConstants.ITEM, ImageDelegateAdapter(activity.applicationContext, {photo->
+                activity.startActivity(Intent(activity, InfoActivity::class.java).apply {
+                    putExtra("data", photo)
+                    flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                })
+            }))
         }
     }
 
@@ -71,6 +77,10 @@ class MainFragment : BaseFragment() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        toolbar?.let{
+            toolbar.title = getString(R.string.app_name)
+        }
+
         fab.setOnClickListener {
             val imm = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
