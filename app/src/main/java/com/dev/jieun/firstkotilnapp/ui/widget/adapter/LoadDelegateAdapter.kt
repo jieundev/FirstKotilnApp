@@ -1,11 +1,10 @@
-package com.dev.jieun.firstkotilnapp.ui.adapter
+package com.dev.jieun.firstkotilnapp.ui.widget.adapter
 
 import android.content.Context
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import com.dev.jieun.firstkotilnapp.R
 

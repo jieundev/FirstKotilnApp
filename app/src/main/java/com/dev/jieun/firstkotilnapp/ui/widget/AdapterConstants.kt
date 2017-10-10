@@ -1,4 +1,4 @@
-package com.dev.jieun.firstkotilnapp.util
+package com.dev.jieun.firstkotilnapp.ui.widget
 
 object AdapterConstants {
     val ITEM = 1

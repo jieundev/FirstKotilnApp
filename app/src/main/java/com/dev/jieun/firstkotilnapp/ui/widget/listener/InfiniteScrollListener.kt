@@ -1,4 +1,4 @@
-package com.dev.jieun.firstkotilnapp.ui.listener
+package com.dev.jieun.firstkotilnapp.ui.widget.listener
 
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager

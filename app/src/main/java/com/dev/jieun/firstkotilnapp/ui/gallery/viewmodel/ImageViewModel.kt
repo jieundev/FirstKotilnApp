@@ -1,4 +1,4 @@
-package com.dev.jieun.firstkotilnapp.ui.viewmodel
+package com.dev.jieun.firstkotilnapp.ui.gallery.viewmodel
 
 import com.dev.jieun.firstkotilnapp.data.FlickrRepository
 import com.dev.jieun.firstkotilnapp.data.model.Photo

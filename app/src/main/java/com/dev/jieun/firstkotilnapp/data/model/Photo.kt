@@ -2,9 +2,8 @@ package com.dev.jieun.firstkotilnapp.data.model
 
 import android.os.Parcel
 import android.os.Parcelable
-import com.dev.jieun.firstkotilnapp.ui.adapter.LoadMoreAdapter
-import com.dev.jieun.firstkotilnapp.ui.adapter.ViewType
-import com.dev.jieun.firstkotilnapp.util.AdapterConstants
+import com.dev.jieun.firstkotilnapp.ui.widget.adapter.ViewType
+import com.dev.jieun.firstkotilnapp.ui.widget.AdapterConstants
 
 data class Photo (
         val id: String,

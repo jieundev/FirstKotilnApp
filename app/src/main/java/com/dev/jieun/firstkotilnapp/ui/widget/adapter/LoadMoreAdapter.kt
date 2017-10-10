@@ -1,14 +1,11 @@
-package com.dev.jieun.firstkotilnapp.ui.adapter
+package com.dev.jieun.firstkotilnapp.ui.widget.adapter
 
 import android.content.Context
 import android.support.v4.util.SparseArrayCompat
 import android.support.v7.widget.RecyclerView
 
 import android.view.ViewGroup
-import android.widget.AdapterView
-import com.dev.jieun.firstkotilnapp.data.model.Photo
-import com.dev.jieun.firstkotilnapp.ui.base.BaseViewHolder
-import com.dev.jieun.firstkotilnapp.util.AdapterConstants
+import com.dev.jieun.firstkotilnapp.ui.widget.AdapterConstants
 import java.util.ArrayList
 
 class LoadMoreAdapter(val context: Context) :  RecyclerView.Adapter<RecyclerView.ViewHolder>(){

@@ -1,17 +1,14 @@
-package com.dev.jieun.firstkotilnapp.ui
+package com.dev.jieun.firstkotilnapp.ui.gallerydetail
 
 import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.dev.jieun.firstkotilnapp.R
 import com.dev.jieun.firstkotilnapp.data.model.Photo
 import com.dev.jieun.firstkotilnapp.ui.base.BaseFragment
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_info.*
 
 class InfoFragment : BaseFragment(){
@@ -23,7 +20,6 @@ class InfoFragment : BaseFragment(){
 
     companion object {
         fun INSTANCE(bundle: Bundle) : InfoFragment { return InfoFragment().apply { arguments = bundle } }
-        val TAG : String = "InfoFragment"
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {

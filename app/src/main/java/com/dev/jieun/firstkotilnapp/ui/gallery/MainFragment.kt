@@ -1,4 +1,4 @@
-package com.dev.jieun.firstkotilnapp.ui
+package com.dev.jieun.firstkotilnapp.ui.gallery
 
 import android.content.Context
 import android.content.Intent
@@ -10,13 +10,13 @@ import android.view.*
 import android.view.inputmethod.InputMethodManager
 import com.dev.jieun.firstkotilnapp.R
 import com.dev.jieun.firstkotilnapp.data.FlickrRepository
-import com.dev.jieun.firstkotilnapp.ui.adapter.ImageDelegateAdapter
-import com.dev.jieun.firstkotilnapp.ui.adapter.LoadDelegateAdapter
-import com.dev.jieun.firstkotilnapp.ui.adapter.LoadMoreAdapter
+import com.dev.jieun.firstkotilnapp.ui.gallerydetail.InfoActivity
+import com.dev.jieun.firstkotilnapp.ui.widget.adapter.LoadDelegateAdapter
+import com.dev.jieun.firstkotilnapp.ui.widget.adapter.LoadMoreAdapter
 import com.dev.jieun.firstkotilnapp.ui.base.BaseFragment
-import com.dev.jieun.firstkotilnapp.ui.listener.InfiniteScrollListener
-import com.dev.jieun.firstkotilnapp.ui.viewmodel.ImageViewModel
-import com.dev.jieun.firstkotilnapp.util.AdapterConstants
+import com.dev.jieun.firstkotilnapp.ui.widget.listener.InfiniteScrollListener
+import com.dev.jieun.firstkotilnapp.ui.gallery.viewmodel.ImageViewModel
+import com.dev.jieun.firstkotilnapp.ui.widget.AdapterConstants
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_image.*
 
@@ -28,7 +28,6 @@ class MainFragment : BaseFragment() {
     // Java 식의 static instance
     companion object {
         val INSTANCE : MainFragment by lazy { MainFragment() }
-        val TAG : String = "MainFragment"
     }
 
     private val fab by lazy {
@@ -43,7 +42,7 @@ class MainFragment : BaseFragment() {
         println("MainFrag :: "+activity.applicationContext.toString())
         LoadMoreAdapter(activity.applicationContext).apply {
             delegateAdapters.put(AdapterConstants.LOADING, LoadDelegateAdapter(activity.applicationContext))
-            delegateAdapters.put(AdapterConstants.ITEM, ImageDelegateAdapter(activity.applicationContext, {photo->
+            delegateAdapters.put(AdapterConstants.ITEM, ImageDelegateAdapter(activity.applicationContext, { photo ->
                 activity.startActivity(Intent(activity, InfoActivity::class.java).apply {
                     putExtra("data", photo)
                     flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
